@@ -68,3 +68,6 @@ app.listen(config.port,()=> {
 
     console.log(`server is listening ${config.baseUrl}`)
 })
+if (process.env.NODE_ENV) {
+    app.use(express.static('frontend/build'))
+  }
