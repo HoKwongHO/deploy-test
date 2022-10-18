@@ -1,4 +1,4 @@
-const { createUser, login, updateUser, deleteUser, getAllProducts, searching, getSearch, getUser, productInfo} = require("../controllers/customerController");
+const { createUser, login, updateUser, deleteUser, getAllProducts, searching, productInfo} = require("../controllers/customerController");
 const validate = require("../middleware/validdate");
 const registerUserSchema = require("../schema/userSchema");
 const multer  = require('multer-upgrade');

@@ -99,13 +99,13 @@ const searching = async(req, res) => {
     res.send({payload: search});
 }
 
-const getSearch = (req, res) => {
-    res.sendFile("/views/search-demo.html", {root: __dirname+"/.."});
-};
+// const getSearch = (req, res) => {
+//     res.sendFile("/views/search-demo.html", {root: __dirname+"/.."});
+// };
 
-const getUser = (req, res) => {
-    res.sendFile("/views/index.html", {root: __dirname+"/.."});
-};
+// const getUser = (req, res) => {
+//     res.sendFile("/views/index.html", {root: __dirname+"/.."});
+// };
 
   const productInfo =  async (req, res) => {
     DataModel.findById(req.params._id).then((items) => res.json(items))
@@ -127,8 +127,8 @@ module.exports = {
     deleteUser,
     getAllProducts,
     searching,
-    getSearch,
-    getUser,
+    // getSearch,
+    // getUser,
     productInfo
     //productInfo
 }
