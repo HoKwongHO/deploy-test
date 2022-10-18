@@ -21,7 +21,7 @@ const {
 const {  staffLogin,
     getStaff,} = require("../controllers/staffController");
 const homeRouter = (app) =>  {
-    app.route("/").get(getAllProducts);
+    // app.route("/").get(getAllProducts);
     app.route("/User").get(getUser);
     app.route("/search").get(getSearch);
     app.route("/register").post(validate(registerUserSchema), createUser);

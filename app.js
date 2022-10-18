@@ -68,9 +68,17 @@ app.listen(process.env.PORT||config.port,()=> {
 
     console.log(`server is listening ${config.baseUrl}`)
 })
-if (process.env.NODE_ENV) {
-    app.use(express.static('frontend/build'))
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(process.cwd(), 'frontend/build/index.html'))
-      })
-  }
+
+app.use(express.static(path.join(__dirname, 'frontend/build')));
+
+
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
+});
+
+// if (process.env.NODE_ENV) {
+//     app.use(express.static('frontend/build'))
+//     app.get('*', (req, res) => {
+//         res.sendFile(path.resolve(process.cwd(), 'frontend/build/index.html'))
+//       })
+//   }
