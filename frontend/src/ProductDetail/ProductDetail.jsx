@@ -6,7 +6,7 @@ import { useLocation } from 'react-router'
 import { useEffect,useState } from 'react'
 import axios from 'axios';
 import { Button, Link } from '@material-ui/core'
-const port = process.env.PORT || 3030;
+
 
 function ProductDetail(props) {
     const { search } = useLocation();
@@ -14,7 +14,7 @@ function ProductDetail(props) {
     const [info,setInfo] = useState({})
 
     const initProductInfo = async () => {
-        axios.get(`http://localhost:`+port+`/all-product/productInfo/${ search.split('?id=')[1]}`).then(res => {
+        axios.get(`/all-product/productInfo/${ search.split('?id=')[1]}`).then(res => {
             setInfo(res.data)
         })
     }

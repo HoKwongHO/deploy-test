@@ -6,14 +6,14 @@ import Information from './Components/Information';
 import Footer from './Components/Footer';
 import { useThemeContext } from './ThemeContext/ThemContext';
 import Sitemap from './sitemap';
-const port = process.env.PORT || 3030;
+
 
 function App() {
   const { theme } = useThemeContext();
   const [list,setList] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:"+port+"/all-product")
+    fetch("/all-product")
         .then((res) => res.json())
         .then((jsonRes) => setList(jsonRes));
 }, []);   

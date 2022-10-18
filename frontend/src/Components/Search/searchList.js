@@ -2,7 +2,6 @@ import { React, useEffect, useState } from 'react'
 import "./Search.css";
 import Card from '../Card/Card';
 
-const port = process.env.PORT || 3030;
 // const data = fetch("http://localhost:3030/all-product").then(res => res.json())
 // console.log(data)
 function List(props) {
@@ -10,7 +9,7 @@ function List(props) {
     })
     console.log(products);
     useEffect(() => {
-        fetch("http://localhost:"+port+"/all-product")
+        fetch("/all-product")
             .then((res) => res.json())
             .then((jsonRes) => setProducts(jsonRes));
     }, []);    

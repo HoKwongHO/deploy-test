@@ -6,7 +6,7 @@ import Header from '../Components/logined/StaffLoginHeader';
 import axios from 'axios';
 import IconButton from '@material-ui/core/IconButton';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
-const port = process.env.PORT || 3030;
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -72,7 +72,7 @@ function Login() {
       headers: {
         "Content-type": "application/json"
       },
-      url: "http://localhost:"+port+"/addProduct",
+      url: "/addProduct",
       data: JSON.stringify(product)
     }).then(res => {
       if (res.status === 200) {
@@ -83,7 +83,7 @@ function Login() {
   };
 
     useEffect(() => {
-        fetch("http://localhost:"+port+"/all-product")
+        fetch("/all-product")
             .then((res) => res.json())
             .then((jsonRes) => setData(jsonRes));
     }, []);    
@@ -112,7 +112,7 @@ function Login() {
         "Content-type": "multipart/form-data"
       },
       data: fd,
-      url: "http://localhost:"+port+"/upload"
+      url: "/upload"
     }).then(res => {
       if (res.status === 200) {
         handleChange(res.data.url,'imgUri')
